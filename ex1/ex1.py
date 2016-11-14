@@ -105,11 +105,10 @@ def gradientDecent(X,y,theta,alpha,iterations):
 	m = y.size
 	alpha = alpha/m
 	J_history = []
-	k = np.array([0.0,0.0])
+	k = np.zeros(X.shape[1])
 	for i in range(iterations):
-		h = theta[0]*X[:,0] + theta[1]*X[:,1]
-		k[0] = alpha*(sum((h-y)*X[:,0]))
-		k[1] = alpha*(sum((h-y)*X[:,1]))
+		h = X.dot(theta)
+		k = alpha*(X.T.dot(h-y))
 		theta = theta - k
 		J_history.append(computeCost(X,y,theta))
 	return theta, J_history
