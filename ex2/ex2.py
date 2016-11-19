@@ -41,7 +41,7 @@ def main():
 
 	#  ============= Part 3: Optimizing using scipy  ==============
 
-	res = minimize(costFunction, initial_theta, method='TNC',jac=False, args=(X, y), options={'gtol': 1e-3, 'disp': True, 'maxiter': 1000})
+	res = minimize(costFunction, initial_theta, method='TNC',jac=False, args=(X, y), options={'gtol': 1e-3, 'disp': False, 'maxiter': 1000})
 
 	theta = res.x
 	cost = res.fun
@@ -132,7 +132,6 @@ def predict(theta, X):
 	m = X.size
 	p = np.zeros(m)
 	p = sigmoid(X.dot(theta)) >= 0.5
-	print(p)
 
 	return p
 
