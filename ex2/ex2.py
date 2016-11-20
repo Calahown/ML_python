@@ -70,8 +70,8 @@ def main():
 
 
 def plotData(X,y):
-	pos = X[np.where(y==1,True,False).flatten()]
-	neg = X[np.where(y==0,True,False).flatten()]
+	pos = X[np.where(y==1,True,False)]
+	neg = X[np.where(y==0,True,False)]
 	plt.plot(pos[:,0],pos[:,1],'+',markersize=7,markeredgecolor='black',markeredgewidth=2)
 	plt.plot(neg[:,0],neg[:,1],'o',markersize=7,markeredgecolor='black',markerfacecolor='yellow')
 
